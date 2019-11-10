@@ -1,10 +1,12 @@
 #lang racket
  
-(require website/bootstrap)
+(require website/bootstrap
+          "./css.rkt")
  
 (define my-site
   (list
     (bootstrap-files) 
+    (my-css)
     (page index.html 
       (content
         (jumbotron style: (properties

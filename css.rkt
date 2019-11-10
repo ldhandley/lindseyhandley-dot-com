@@ -1,9 +1,9 @@
 #lang racket
 
+(provide my-css)
+
 (require website/bootstrap
           racket/runtime-path)
-
-(provide my-css)
 
 (define-runtime-path 
   css-path "./css")
