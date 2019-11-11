@@ -1,7 +1,9 @@
-#lang racket
+#lang at-exp racket
  
 (require website/bootstrap
-          "./css.rkt")
+          racket/runtime-path
+          "./css.rkt"
+          "./img.rkt")
 
 (define (header-jumbotron)
   (jumbotron style: (properties
@@ -28,7 +30,7 @@
     (br)
     (card-deck
       (card
-        (card-img-top)
+        (card-img-top src: (pathify thoughtstem-teaching-path))
         (card-body
           (card-title "ThoughtSTEM")
           (card-subtitle "My 1st Startup")
@@ -36,7 +38,7 @@
           (button-primary
             "Learn More")))
       (card
-        (card-img-top)
+        (card-img-top src: (pathify metacoders-girls-path))
         (card-body
           (card-title "MetaCoders")
           (card-subtitle "My 1st Non-Profit")
@@ -44,7 +46,7 @@
           (button-primary
             "Learn More")))
       (card
-        (card-img-top)
+        (card-img-top src: (pathify thrombin-thrombomodulin-path))
         (card-body
           (card-title "Scientific Publications")
           (card-subtitle "Biochemistry / Biophysical")
@@ -124,12 +126,12 @@
   (list
     (bootstrap-files) 
     (my-css)
+    (imgs)
     (page index.html 
       (content
         (header-jumbotron)
         (my-projects-section)
         (my-blog)
         (my-footer)))))
-
 
 (render my-site #:to "output")
